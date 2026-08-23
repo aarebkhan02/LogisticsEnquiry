@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Logistics Company Website"
+description = "A polished frontend-only transportation and logistics company website prototype with responsive navigation, service discovery, inquiry flows, WhatsApp contact, and a demo logistics assistant."
+version = "1.0.0"
+id = "artifacts/logistics-company-website"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25947
+
+[services.development]
+run = "pnpm --filter @workspace/logistics-company-website run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/logistics-company-website", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/logistics-company-website/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25947"
+BASE_PATH = "/"
