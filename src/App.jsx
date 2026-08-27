@@ -33,9 +33,10 @@ import {
   X,
 } from 'lucide-react';
 import { Route as WouterRoute, Router as WouterRouter, Switch, useLocation } from 'wouter';
+import { FaWhatsapp } from 'react-icons/fa6';
 
 const queryClient = new QueryClient();
-const WHATSAPP_URL = 'https://wa.me/15550147862';
+const WHATSAPP_URL = 'https://wa.me/919179040784';
 const HERO_SLIDES = [
   {
     url: 'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',
@@ -170,7 +171,7 @@ function Header() {
         </nav>
         <div className="hidden items-center gap-5 md:flex">
           <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[13px] font-semibold text-[#f2f4ee]/70 transition-colors hover:text-[#f4ad2d]" data-testid="link-header-whatsapp">
-            <MessageCircle size={15} /> WhatsApp
+            <FaWhatsapp size={15} className="text-[#25D366]" /> WhatsApp
           </a>
           <button onClick={() => scrollToInquiry()} className="flex items-center gap-2 bg-[#f4ad2d] px-4 py-2.5 text-[13px] font-bold text-[#172f43] transition-colors hover:bg-[#ffd06c]" data-testid="button-header-quote">
             Get a Quote <ArrowUpRight size={16} />
@@ -707,10 +708,10 @@ function ContactForm({ selectedService, onServiceChange }) {
           <p className="mt-8 max-w-sm leading-relaxed text-[#597080]">Tell us what is moving, where it needs to go, and what is at stake. A Northstar specialist will be in touch within one business day.</p>
           <div className="mt-12 space-y-5 border-t border-[#cfc9bd] pt-6 text-sm text-[#172f43]">
             <a href="mailto:hello@northstarlogistics.example" className="flex items-center gap-3 transition-colors hover:text-[#2d827a]" data-testid="link-contact-email"><Mail size={17} className="text-[#2d827a]" /> hello@northstarlogistics.example</a>
-            <a href="tel:+15550147862" className="flex items-center gap-3 transition-colors hover:text-[#2d827a]" data-testid="link-contact-phone"><Phone size={17} className="text-[#2d827a]" /> +1 555 014 7862</a>
+            <a href="tel:+919179040784" className="flex items-center gap-3 transition-colors hover:text-[#2d827a]" data-testid="link-contact-phone"><Phone size={17} className="text-[#2d827a]" /> +91 91790 40784</a>
             <p className="flex items-center gap-3"><MapPin size={17} className="text-[#2d827a]" /> 88 Harbor Exchange, Seattle, WA</p>
           </div>
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="mt-9 inline-flex items-center gap-3 bg-[#d7ebe5] px-4 py-3 text-sm font-bold text-[#172f43] transition-colors hover:bg-[#c6e2db]" data-testid="link-contact-whatsapp"><MessageCircle size={18} className="text-[#2d827a]" /> Prefer WhatsApp? Start there.</a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="mt-9 inline-flex items-center gap-3 bg-[#d7ebe5] px-4 py-3 text-sm font-bold text-[#172f43] transition-colors hover:bg-[#c6e2db]" data-testid="link-contact-whatsapp"><FaWhatsapp size={18} className="text-[#25D366]" /> Prefer WhatsApp? Start there.</a>
         </div>
         <div className="bg-[#e8e5dc] p-6 sm:p-10">
           {sent && (
@@ -753,7 +754,7 @@ function Footer() {
       <div className="mx-auto grid max-w-[1440px] gap-10 border-b border-white/15 pb-12 md:grid-cols-[1fr_auto_auto] md:items-end">
         <div><Logo /><p className="mt-6 max-w-xs text-sm leading-relaxed text-[#f2f4ee]/55">Freight that keeps its word. Transportation and supply chain solutions built for the real world.</p></div>
         <div><p className="mono-label mb-4 text-[9px] text-[#f4ad2d]">EXPLORE</p><div className="flex flex-col gap-3 text-sm text-[#f2f4ee]/65">{navItems.slice(1).map((item) => <a key={item.href} href={item.href} className="transition-colors hover:text-[#f4ad2d]" data-testid={`link-footer-${item.label.toLowerCase()}`}>{item.label}</a>)}</div></div>
-        <div><p className="mono-label mb-4 text-[9px] text-[#f4ad2d]">CONNECT</p><div className="flex flex-col gap-3 text-sm text-[#f2f4ee]/65"><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="transition-colors hover:text-[#f4ad2d]" data-testid="link-footer-whatsapp">WhatsApp desk</a><a href="mailto:hello@northstarlogistics.example" className="transition-colors hover:text-[#f4ad2d]" data-testid="link-footer-email">Email the team</a></div></div>
+        <div><p className="mono-label mb-4 text-[9px] text-[#f4ad2d]">CONNECT</p><div className="flex flex-col gap-3 text-sm text-[#f2f4ee]/65"><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 transition-colors hover:text-[#f4ad2d]" data-testid="link-footer-whatsapp"><FaWhatsapp size={14} className="text-[#25D366]" /> WhatsApp desk</a><a href="mailto:hello@northstarlogistics.example" className="transition-colors hover:text-[#f4ad2d]" data-testid="link-footer-email">Email the team</a></div></div>
       </div>
       <div className="mx-auto flex max-w-[1440px] flex-col justify-between gap-3 pt-6 text-[10px] text-[#f2f4ee]/35 sm:flex-row"><span>© 2025 Northstar Logistics Group</span><span className="mono-label text-[9px]">BUILT FOR THE NEXT HANDOFF</span></div>
     </footer>
@@ -773,7 +774,7 @@ function FloatingActions() {
   }
   return (
     <>
-      <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="fixed bottom-5 left-5 z-30 flex h-12 w-12 items-center justify-center bg-[#2d827a] text-[#f2f4ee] shadow-[0_10px_30px_rgba(23,47,67,.22)] transition-transform hover:-translate-y-1 sm:bottom-7 sm:left-7" aria-label="Chat with Northstar on WhatsApp" data-testid="button-floating-whatsapp"><MessageCircle size={21} /></a>
+      <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="fixed bottom-5 left-5 z-30 flex h-12 w-12 items-center justify-center bg-[#25D366] text-[#f2f4ee] shadow-[0_10px_30px_rgba(23,47,67,.22)] transition-transform hover:-translate-y-1 sm:bottom-7 sm:left-7 hover:bg-[#20ba5a]" aria-label="Chat with Northstar on WhatsApp" data-testid="button-floating-whatsapp"><FaWhatsapp size={22} /></a>
       <div className="fixed bottom-5 right-5 z-30 sm:bottom-7 sm:right-7">
         {open && (
           <div className="mb-3 w-[calc(100vw-40px)] max-w-[370px] overflow-hidden border border-[#b7c6c5] bg-[#f4f2eb] shadow-[0_18px_55px_rgba(23,47,67,.22)]" role="dialog" aria-label="Ask Logistics Assistant" data-testid="panel-logistics-assistant">
